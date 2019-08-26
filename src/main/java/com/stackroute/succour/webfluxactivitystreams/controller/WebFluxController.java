@@ -15,14 +15,11 @@ import static com.ibm.common.activitystreams.Makers.object;
 
 @RestController
 public class WebFluxController {
-//    Set up Web Client
-    WebClient webClient = WebClient
-            .builder()
-            .baseUrl("http://localhost:8080")
-            .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-            .defaultUriVariables(Collections.singletonMap("url", "http://localhost:8080"))
-            .build();
 
+    /**
+     * Creates a Sample Activity object and returns it in Flux
+     * @return Flux<Activity>
+     */
     @RequestMapping("/webflux-activity-streams")
     public Flux<Activity> getActivityStreams(){
         Activity activity =
